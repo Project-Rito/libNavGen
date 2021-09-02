@@ -1,0 +1,6 @@
+[submodule "lib/bvh"]
+	path = lib/bvh
+	url = https://github.com/madmann91/bvh
+[submodule "lib/recastnavigation"]
+	path = lib/recastnavigation
+	url = https://github.com/recastnavigation/recastnavigation
