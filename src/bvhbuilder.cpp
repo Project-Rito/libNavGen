@@ -84,11 +84,11 @@ DllExport [[maybe_unused]] bool BuildBVHForMesh(const float *verts, const unsign
     return true;
 }
 
-DllExport [[maybe_unused]] size_t GetNodeSize() {
+DllExport [[maybe_unused]] std::uint32_t GetNodeSize() {
     return sizeof(Bvh::Node);
 }
 
-DllExport [[maybe_unused]] size_t GetBVHSize() {
+DllExport [[maybe_unused]] std::uint32_t GetBVHSize() {
     return bbvh.node_count;
 }
 
