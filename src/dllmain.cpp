@@ -174,6 +174,18 @@ DllExport [[maybe_unused]] void GetMeshTris(void *buffer) {
     }
 }
 
+DllExport [[maybe_unused]] void GetMeshAreas(void* buffer) {
+    if (currentMesh != nullptr) {
+        memcpy(buffer, currentMesh->areas, currentMesh->npolys * sizeof(char));
+    }
+}
+
+DllExport [[maybe_unused]] void GetMeshRegions(void* buffer) {
+    if (currentMesh != nullptr) {
+        memcpy(buffer, currentMesh->regs, currentMesh->npolys * sizeof(short));
+    }
+}
+
 DllExport [[maybe_unused]] void GetBoundingBox(float *buffer) {
     buffer[0] = bmin[0];
     buffer[1] = bmin[1];
