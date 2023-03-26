@@ -8,7 +8,7 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 add_library(NavGen SHARED
   src/dllmain.cpp
   src/bvhbuilder.cpp
- "src/dllmain (2).cpp")
+ "src/dllmain (2).cpp" "src/ChunkyTriMesh.h" "src/ChunkyTriMesh.cpp")
 
 add_subdirectory(lib/bvh)
 add_subdirectory(lib/recastnavigation/Recast)
