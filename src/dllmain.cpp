@@ -82,7 +82,7 @@ SetNavmeshBuildParams(float cs, float ch, float walkableSlopeAngle, float walkab
     config.detailSampleMaxError = detailSampleMaxError;
 }
 
-DllExport [[maybe_unused]] bool BuildTileForMesh(float* verts, int vcount, int* indices, int icount, int tx, int ty, float orig[3]) {
+DllExport [[maybe_unused]] bool BuildTileForMesh(float* verts, int vcount, int* indices, int icount, int tx, int ty, float orig[3], bool field) {
     if (context == nullptr) {
         context = new rcContext();
     }
@@ -130,10 +130,12 @@ DllExport [[maybe_unused]] bool BuildTileForMesh(float* verts, int vcount, int* 
         }
     }
 
-    bmin[0] = orig[0];// -((TILE_WIDTH)*config.cs);
-    bmin[2] = orig[2];// -((TILE_WIDTH)*config.cs);
-    bmax[0] = orig[0] + ((TILE_WIDTH));
-    bmax[2] = orig[2] + ((TILE_WIDTH));
+    if (field) {
+        bmin[0] = orig[0];// -((TILE_WIDTH)*config.cs);
+        bmin[2] = orig[2];// -((TILE_WIDTH)*config.cs);
+        bmax[0] = orig[0] + ((TILE_WIDTH));
+        bmax[2] = orig[2] + ((TILE_WIDTH));
+    }
 
 
     rcVcopy(config.bmin, bmin);
